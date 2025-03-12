@@ -1,0 +1,1 @@
+# SPlectrum Platform Documentation
