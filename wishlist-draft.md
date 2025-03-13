@@ -23,6 +23,12 @@ The execution flow created with such modules should be determined by specific pa
 By making use of the visible data state in this way, there is no need for any additional logging. 
 The aim is here to create a platform that has all its data requirements fully encapsulated - all can be found in the data stream generated.  
 
+### Task Engine Similarities & Differences
+
+The platform will incorporate a lot of features that were present in the Task Engine, but it will also differ from it substantially.  
+The aim is to have a pure streaming application (consumers & producers) and the Task Engine was not.
+I want it to be simpler and better prepared for auto-codegeneration.
+
 ---
 
 ## Header Metadata Candidates
