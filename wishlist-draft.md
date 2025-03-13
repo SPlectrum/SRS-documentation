@@ -145,3 +145,13 @@ However, it is not as clear cut as one might think: It is possible to design dat
 External repositories are repositories the platform synchronises from or to but that do not function as an internal repository.
 
 ---
+
+## Code Repositories Strategy
+
+Git will be used for the code and code instance repositories.  
+Code instance repositories are used to gather runtime data of executing code modules.  
+The final strategy needs to be one suitable for a highly automated, AI powered environment. That will probably be a repository per versioned code module.  
+However, the initial core code will be in an all-in-one repository as I see this as bootstrapping code.
+
+
+---
