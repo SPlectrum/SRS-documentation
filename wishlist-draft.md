@@ -15,8 +15,13 @@ The message headers should be used intensively for metadate and should backed wi
 ## Platform Application Design
 
 The platform runs streaming (compatible) applications. 
-This means that all the functional blocks it uses to create processes etc. are compatible with this design.  
-The execution flow is functional - not imperative
+This means that all the functional blocks - modules - it uses to create processes etc. are compatible with this design.  
+The execution flow is functional - not imperative.  
+Modules should be single concern.  
+There is a single internal input output pattern, an array of messages in and out.  
+The execution flow created with such modules should be determined by specific patterns in the visible data and not by module internal state or logic. 
+By making use of the visible data state in this way, there is no need for any additional logging. 
+The aim is here to create a platform that has all its data requirements fully encapsulated - all can be found in the data stream generated.  
 
 ---
 
@@ -82,6 +87,26 @@ This keeps execution paths clean and allows functionality to be extended based o
 
 ---
 
+## Fine-grained Modular Design
+
+Code implementation should be done through small and wherever possible single-concern code units.  
+This should allow for easy implementation and maintenance.  
+The execution flow should be governed by specific data patterns in the visible data state and not by code module internal logic or state.  
+This approach is well-suited for runtime execution plan creation.  
+However, the platform should have - where appropriate - the capability to compile fine-grained modules into a single executable.  
+Even more, it may as part of this change the module code to implement optimisations while maintaining the same execution outcome.
+
+---
+
+## Testing Strategy
+
+The aim is to use integration testing from the ground up and only use integration testing.  
+Within this paradigm testing a module is integration testing of an atomic system consisting of one module.  
+Test are not written in code, but constructed in data. There is only one type of test rig as the platform implement a single internal input output pattern.
+The fine-grained modular implementation pattern 
+
+---
+
 ## Internal Data Repositories
 
 The aim is to have the make the (physical) data repository or -ies of the platform switchable, while the platform adheres to the same logical data repository pattern.  
@@ -89,17 +114,28 @@ Not all repositories need to be fully equivalent, only sufficiently equivalent.
 The platform runs on streaming data and this is reflected by its logical repository, but note that the underlying physical repository could be external and non-streaming (e.g. git or rdbm)
 provided there is a compliant interface between logical and physical (e.g. rdbm is fully cdc enabled).
 
-### Model Data Repository
+### Model Data Repository - Logical Repository
 
-The model data repository is Kafka, however there should be a choice of repositories for platform internal use that are sufficiently equivalent to Kafka (depending on the use case).
+The model data repository - i.e. the logical data repository - is Kafka.  
+However there should be a choice of physical repositories for platform internal use that are sufficiently compliant with the logical repository.  
+What this means is that physical repositories do not need all configurations available at the logical repository level.
 
 ### Folder Based Repositories
+
+The filesystem offers a versatile tool to create a variety of file folder structure patterns that are compliant with the logical repository.  
+Various patterns will be worked out in detail and used heavily during the initial implementation stages.
+
+### Third Party Repositories
+
+I am thinking here of satisfactory repository patterns that could be implemented on top of Redis, git, SQL rdb, ...  
+This will be looked into as the need arises.
 
 ---
 
 ## External Repositories
 
 External Repositories are those that are natively not equivalent with the internal logical repository model - Kafka.  
-However, it is not as clear cut as one might think: It is possible to design data streaming compatible data structures within (natively) non-streaming repositories.
+However, it is not as clear cut as one might think: It is possible to design data streaming compatible data structures within (natively) non-streaming repositories.  
+External repositories are repositories the platform synchronises from or to but that do not function as an internal repository.
 
 ---
