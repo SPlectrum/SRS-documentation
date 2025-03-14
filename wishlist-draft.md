@@ -23,11 +23,16 @@ The execution flow created with such modules should be determined by specific pa
 By making use of the visible data state in this way, there is no need for any additional logging. 
 The aim is here to create a platform that has all its data requirements fully encapsulated - all can be found in the data stream generated.  
 
-### Task Engine Similarities & Differences
+### Task Engine & InfoMetis - Similarities & Differences
 
 The platform will incorporate a lot of features that were present in the Task Engine, but it will also differ from it substantially.  
 The aim is to have a pure streaming application (consumers & producers) and the Task Engine was not.
 I want it to be simpler and better prepared for auto-codegeneration.
+
+From InfoMetis it inherits the git and container integration, the full lifecycle approach.  
+InfoMetis used container embedded git repositories, with the container registry being the authoritative source.  
+The main reason was that the container wrapper provided a functional wrapper that allowed more diverse artifacts to be stored within (including the git repository).  
+Because a containerised InfoMetis runtimer that managed all these container (and this git repository) there was no need to set up complex git with submodules.
 
 ---
 
@@ -81,6 +86,11 @@ This ensures that the platform has ownership of the execution and is able to man
 The core functionality of the platform is to configure, deploy run and monitory streaming functionality.  
 The main aim is to apply this to distributed systems, however it will use the same paradigm for transient processes and its own internal implementation.  
 One way to look at it is that it's behaviour is similar to SQL server: SQL that is written is compiled, get executed and comes with a bunch of metrics and other metadata.  
+
+It should be compatible with decentralised  
+This means being self-sufficient for the functionality that is locally required and at the same time being able to interact flexibly with other platform instances.  
+Every instance has its own local lifecycle in terms of install, boot, runtime etc.  
+Thinking about a client-server pattern, this would mean that both client and server are instances each with their own functionality - one client, the other server.
 
 ---
 
