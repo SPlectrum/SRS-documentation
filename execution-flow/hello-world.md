@@ -26,34 +26,98 @@ The property names used in this example are experimental.
 
 // request gets wrapped in a streaming data record
 {
-"key":null,
-"value": "spl hello-world my friends",
-"headers":
-  [
-    "action": "commandline"
+  "headers": [
+    "action": "request/commandline"
     "status": "pending"
-  ]
+  ],
+  "value": "spl hello-world my friends"
 }
 
 // request gets parsed into an internal action
 {
-"key":null,
-"value": { "person": "my friends" },
-"headers":
-  [
-    "action": "hello-world"
+  "headers": [
+    "action": "internal/hello-world"
     "status": "pending"
-  ]
+  ],
+  "value": { "person": "my friends" }
 }
 
 // 
 {
-"key":null,
-"value": "Hello my friends !",
-"headers":
-  [
-    "action": "hello-world"
+  "headers": [
+    "action": "internal/hello-world"
     "status": "complete"
+  ],
+  "value": "Hello my friends !"
+}
+
+// Once the request is entered into the execution pipeline it gets wrapped in an execution context wrapper
+{
+  "headers": [
+    "action": "execute/prepare"
   ]
+  "value": {
+    "headers": [
+      "action": "request/commandline"
+      "status": "pending"
+    ],
+    "value": "spl hello-world my friends"
+  }
+}
+
+// the execution context prepares the request by setting an execution plan
+{
+  "headers": [
+    "action": "request/parse"
+  ]
+  "value": {
+    "headers": [
+      "action": "request/parse"
+      "status": "pending"
+    ],
+    "value": "spl hello-world my friends"
+  }
+}
+
+// this returns a subsequent action upon return - real world processing will be more elaborate
+{
+  "headers": [
+    "action": "execute/complete"
+  ]
+  "value": {
+    "headers": [
+      "action": "internal/hello-world"
+      "status": "pending"
+    ],
+    "value": { "person": "my friends" }
+  }
+}
+
+// this returns a subsequent action upon return - real world processing will be more elaborate
+{
+  "headers": [
+    "action": "internal/hello-world"
+  ]
+  "value": {
+    "headers": [
+      "action": "internal/hello-world"
+      "status": "pending"
+    ],
+    "value": { "person": "my friends" }
+  }
+}
+
+// action completed - request completed
+{
+  "headers": [
+    "action": "execute/complete"
+  ]
+  "value": {
+    "headers": [
+      "action": "internal/hello-world"
+      "status": "complete"
+    ],
+    "value": "Hello my friends !"
+  }
 }
 ```
