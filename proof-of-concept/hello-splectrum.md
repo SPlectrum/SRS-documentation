@@ -7,7 +7,7 @@ Thinking of doing it using bash and inotify or with javascript filewatch - no de
 
 ![image](https://github.com/user-attachments/assets/6192afa9-f9dc-494a-bc9c-9e0bd22ccb82)
 
-The aim of the Hello World example is to set up a simple folder based stream example that processes a request.  
+The aim of the Hello Splectrum example is to set up a simple folder based stream example that processes a request.  
 It should process using a consumer publisher pattern and acts as validation of an initial approach which then can be reused.
 
 It will also involve having initial thoughts about runtime etc.
