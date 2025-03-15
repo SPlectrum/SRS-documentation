@@ -21,9 +21,9 @@ But there is also a context for the execution manager.
 The property names used in this example are experimental.
 
 This Hello SPlectrum example is not trivial - it will set up the core of the execution engine.  
-The execution flow will be spread across three queues: request (outer shell), execute (execution manager) and interanl (installed functionality).  
+The execution flow will use a single execution queue, executed request end up in the done queue.
 
-
+REWORK THIS USING SIMPLER EXECUTION SCHEME
 ---
 ```
 // execution flow : commandline --> create request --> execute request
