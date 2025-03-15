@@ -119,7 +119,9 @@ Even more, it may as part of this change the module code to implement optimisati
 The aim is to use integration testing from the ground up and only use integration testing.  
 Within this paradigm testing a module is integration testing of an atomic system consisting of one module.  
 Test are not written in code, but constructed in data. There is only one type of test rig as the platform implement a single internal input output pattern.
-The fine-grained modular implementation pattern 
+
+Generation of complete data streams during execution enables the generation of bug reports and test data sets and will allow for blunt bulk compare tools to check for test success.  
+Bearing in mind that the finegrained execution setup should allow for 'compilation' into single executable actions there is further room for a unique test approach.
 
 ---
 
@@ -163,5 +165,10 @@ Code instance repositories are used to gather runtime data of executing code mod
 The final strategy needs to be one suitable for a highly automated, AI powered environment. That will probably be a repository per versioned code module.  
 However, the initial core code will be in an all-in-one repository as I see this as bootstrapping code.
 
+Code is only one part of the assets that need to be stored.  
+I would like to see a complete storage solution - code base, user stories, issues, test catalog - anything that is part of it.  
+I think one should move to full encapsulation, which would make it ready for a true decentralised approach.  
+Of course it should be possible to dock repositories into larger structures - i.e. a team working on many modules plus an overall solution but each component would store the information relevant to its context.  
+At the moment I can only think of a container image to make this happen.
 
 ---
