@@ -50,8 +50,11 @@ The property names used in this example are experimental.
   ],
   "value": "Hello my friends !"
 }
-
+```
+---
+```
 // Once the request is entered into the execution pipeline it gets wrapped in an execution context wrapper
+// Below are some states of that execution pipeline - the example will showcase a full execution plan
 {
   "headers": [
     "action": "execute/prepare"
@@ -79,7 +82,7 @@ The property names used in this example are experimental.
   }
 }
 
-// this returns a subsequent action upon return - real world processing will be more elaborate
+// this returns a subsequent action upon completion
 {
   "headers": [
     "action": "execute/complete"
@@ -93,7 +96,7 @@ The property names used in this example are experimental.
   }
 }
 
-// this returns a subsequent action upon return - real world processing will be more elaborate
+// this action is schedule for execution
 {
   "headers": [
     "action": "internal/hello-world"
