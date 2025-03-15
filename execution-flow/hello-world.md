@@ -17,22 +17,43 @@ and an analysis of the record structure used for the implementation.
 
 Execution request requires two execution contexts.  
 There is the context for the specific requests to be executed.  
-But there is also a context for the execution manager.
+But there is also a context for the execution manager.  
+The property names used in this example are experimental.
 
 ---
 ```
-[
+// execution flow : commandline --> create request --> execute request
+
+// request gets wrapped in a streaming data record
 {
-"timestamp":1741686415977,
-"timestampType":"CREATE_TIME",
-"partition":0,
-"offset":188,
-"key":"session-key",
-"value": {
-"key":"RA0U+Yhvb8pZ02uJKLWJ3Uv/XZ5qqlZo9vv7fW5nzkA=",
-"algorithm":"HmacSHA256",
-"creation-timestamp":1741686415969 },
-"headers":[]
+"key":null,
+"value": "spl hello-world my friends",
+"headers":
+  [
+    "action": "commandline"
+    "status": "pending"
+  ]
 }
-]
+
+// request gets parsed into an internal action
+{
+"key":null,
+"value": { "person": "my friends" },
+"headers":
+  [
+    "action": "hello-world"
+    "status": "pending"
+  ]
+}
+
+// 
+{
+"key":null,
+"value": "Hello my friends !",
+"headers":
+  [
+    "action": "hello-world"
+    "status": "complete"
+  ]
+}
 ```
