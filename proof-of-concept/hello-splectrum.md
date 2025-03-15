@@ -2,7 +2,7 @@
 
 This initial POC is implemented in its own repository: [hello-splectrum](https://github.com/SPlectrum/hello-splectrum).
 
-Setting up and testing an initial request execution flow.  
+Setting up and testing an initial execution context and request execution flow.  
 Thinking of doing it using bash and inotify or with javascript filewatch - no decision made yet.  
 
 ![image](https://github.com/user-attachments/assets/6192afa9-f9dc-494a-bc9c-9e0bd22ccb82)
@@ -20,7 +20,7 @@ There is the context for the specific requests to be executed.
 But there is also a context for the execution manager.  
 The property names used in this example are experimental.
 
-This Hello World example is not trivial - it will set up the core of the execution engine.  
+This Hello SPlectrum example is not trivial - it will set up the core of the execution engine.  
 The execution flow will be spread across three queues: request (outer shell), execute (execution manager) and interanl (installed functionality).  
 
 
@@ -34,13 +34,13 @@ The execution flow will be spread across three queues: request (outer shell), ex
     "action": "request/commandline"
     "status": "pending"
   ],
-  "value": "spl hello-world my friends"
+  "value": "spl hello-splectrum my friends"
 }
 
 // request gets parsed into an internal action
 {
   "headers": [
-    "action": "internal/hello-world"
+    "action": "internal/hello-splectrum"
     "status": "pending"
   ],
   "value": { "person": "my friends" }
@@ -49,10 +49,10 @@ The execution flow will be spread across three queues: request (outer shell), ex
 // 
 {
   "headers": [
-    "action": "internal/hello-world"
+    "action": "internal/hello-splectrum"
     "status": "complete"
   ],
-  "value": "Hello my friends !"
+  "value": "Hello from SPlectrum to my friends !"
 }
 ```
 ---
@@ -68,7 +68,7 @@ The execution flow will be spread across three queues: request (outer shell), ex
       "action": "request/commandline"
       "status": "pending"
     ],
-    "value": "spl hello-world my friends"
+    "value": "spl hello-splectrum my friends"
   }
 }
 
@@ -82,7 +82,7 @@ The execution flow will be spread across three queues: request (outer shell), ex
       "action": "request/parse"
       "status": "pending"
     ],
-    "value": "spl hello-world my friends"
+    "value": "spl hello-splectrum my friends"
   }
 }
 
@@ -93,7 +93,7 @@ The execution flow will be spread across three queues: request (outer shell), ex
   ]
   "value": {
     "headers": [
-      "action": "internal/hello-world"
+      "action": "internal/hello-splectrum"
       "status": "pending"
     ],
     "value": { "person": "my friends" }
@@ -103,11 +103,11 @@ The execution flow will be spread across three queues: request (outer shell), ex
 // this action is schedule for execution
 {
   "headers": [
-    "action": "internal/hello-world"
+    "action": "internal/hello-splectrum"
   ]
   "value": {
     "headers": [
-      "action": "internal/hello-world"
+      "action": "internal/hello-splectrum"
       "status": "pending"
     ],
     "value": { "person": "my friends" }
@@ -121,10 +121,10 @@ The execution flow will be spread across three queues: request (outer shell), ex
   ]
   "value": {
     "headers": [
-      "action": "internal/hello-world"
+      "action": "internal/hello-splectrum"
       "status": "complete"
     ],
-    "value": "Hello my friends !"
+    "value": "Hello from SPlectrum to my friends !"
   }
 }
 ```
