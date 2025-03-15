@@ -3,7 +3,7 @@
 This example is implemented in its own repository: [hello-world](https://github.com/SPlectrum/hello-world).
 
 Setting up and testing an initial request execution flow.  
-Thinking of doing it using bash and inotify.  
+Thinking of doing it using bash and inotify or with javascript filewatch - no decision made yet.  
 
 ![image](https://github.com/user-attachments/assets/6192afa9-f9dc-494a-bc9c-9e0bd22ccb82)
 
@@ -19,6 +19,10 @@ Execution request requires two execution contexts.
 There is the context for the specific requests to be executed.  
 But there is also a context for the execution manager.  
 The property names used in this example are experimental.
+
+This Hello World example is not trivial - it will set up the core of the execution engine.  
+The execution flow will be spread across three queues: request (outer shell), execute (execution manager) and interanl (installed functionality).  
+
 
 ---
 ```
