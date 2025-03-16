@@ -172,3 +172,8 @@ Of course it should be possible to dock repositories into larger structures - i.
 At the moment I can only think of a container image to make this happen.
 
 ---
+
+## Minimum Runtime State Design
+
+Being a data streaming application with full coverage of meaningful state changes for the current execution context of the platform the local state approach needs to be done differently.  
+Only forward visibility is required with appropriate back state references. This is quite different.
