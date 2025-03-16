@@ -4,5 +4,9 @@ This initial POC is implemented in its own repository: [hello-splectrum](https:/
 
 The aim is to set up a basic request execution pipeline using the correct paradigms.  
 Of main interest is how requests get prepared, execution plans set and requests executed.  
-Of importance is as well that there a proper record of all steps executed.  
-It should be easy for the system to recover from failure / abort.
+
+The POC aims to cover the following through a number of iterations:
+ - start with a simple direct execution of the hello-splectrum steps
+ - create a single pipeline and request execution plan
+ - separate the commandline execution context from the internal execution context
+ - set up two schedulers, time and data footprint.
