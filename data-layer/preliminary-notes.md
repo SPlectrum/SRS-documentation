@@ -17,6 +17,11 @@ The reasoning is the following: the actual repository contains the immutable cha
 The views that are created from it for efficient access can be seen as dynamic representations at runtime.  
 Consider the biological analogue of DNA and RNA, where RNA is the activated and DNA the static.
 
+The data in the repositories can only be accessed through the data layer.  
+It is the data layer that keeps and manages the state data associated with this accesss.  
+The platform initialises on the static data at startup and readies itself for runtime use.  
+Because of that dynamic nature there is a data layer instance per session.
+
 ## Data Structure Management
 
 Data structures come with a schema.  
