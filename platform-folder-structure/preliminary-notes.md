@@ -7,11 +7,17 @@ Currently the thinking is to have the following top level structure:
  - metadata : descriptive data of what resides within data
  - packages : functionality installed / available to the platform
  - runtime : process and dynamic data (associated with execution)
+ - backups : platform level backups
+ - tools : visualisation and managing tools to interact with the platform
+
+The runtime folder is concerned with the processes running on the platform, the settings and the dynamic data (associated with execution).
+For this purpose it has a self-contained structure.
+    - backup : housekeeping cleans up at regular intervals, and state is kept where required
     - boot : startup process (boot and shutdown)
+    - data : the runtime data repository - data readable by all sessions
+    - metadata : the metadata associated with the runtime data repositories
     - system : management process once system as booted
     - sessions : user sessions running on the system (one per input terminal?)
- - backups : housekeeping cleans up at regular intervals, and state is kept where required
- - tools : visualisation and managing tools to interact with the platform
 
  Each process (boot, system or session) within runtime contains the following structure:
   - data : operational data associated with the process

@@ -27,3 +27,10 @@ Because of that dynamic nature there is a data layer instance per session.
 Data structures come with a schema.  
 AVRO is going to be used to manage the schema irrespective of the actual format of the data ( JSON, AVRO, ... )
 
+## Data Layer Underpinning
+
+The initial implementation of the data layer will sit on top of a filesystem. 
+However the implementation should be compatible with Kafka topics. 
+When the data layer is robust enough then multiple underlying repositories will be made available. 
+Once the platform can run on native Kafka it will be able to achieve high bandwidth in and outbound.
+
