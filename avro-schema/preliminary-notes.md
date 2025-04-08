@@ -17,7 +17,7 @@ AVRO schemas will be used for
 There is a registry for each, because both repositories are independent of each other.  
 The registry resides in the metadata folder. Note that this folder will contains more data than just schemas.  
 
-Schemas will be organised in line with the packages and modules that the data is associated with.  
+Schemas will be organised in line with the modules that the data is associated with.  
 The naming of schemas consists of two parts: *subject* and *name*.  
 Both will require namespacing to provide fine-grained extensible naming mechanism.  
 The schema registry has versioning (with evolution and compatibility types).  

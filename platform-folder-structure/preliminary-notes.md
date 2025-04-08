@@ -5,7 +5,7 @@ In this section the folder structure of the platform will be covered.
 Currently the thinking is to have the following top level structure:
  - data : the static data repositories (immutable state change data)
  - metadata : descriptive data of what resides within data
- - packages : functionality installed / available to the platform
+ - modules : functionality installed / available to the platform
  - runtime : process and dynamic data (associated with execution)
  - backups : platform level backups
  - tools : visualisation and managing tools to interact with the platform
@@ -33,3 +33,5 @@ The data folder within a process is used to contain operational data (processed 
   
 The system process lifetime is determined by the boot process. 
 The boot process stays in existence until shutdown.
+
+Note that the boot session (and potentially the system session) may have its own modules folder to ensure it runs on 'safe' code that keeps running when the main part of the install encounter major issues.

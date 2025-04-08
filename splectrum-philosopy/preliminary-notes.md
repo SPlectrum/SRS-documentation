@@ -3,7 +3,7 @@
 The platform is seen as only a building block that allows to create more complex processing structures.  
 
 SPlectrum powers a platform to run data streaming applications.  
-Functionality is contained in packages.  
+Functionality is contained in the modules folder.  
 SPlectrum provides the core functionaltiy.
 
 There is a common structure to everything that runs on SPlectrum,  
