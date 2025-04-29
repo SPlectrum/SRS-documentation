@@ -1,6 +1,6 @@
 # Preliminary Notes
 
-In this section the folder structure of the platform will be covered.
+In this section the directory structure of the platform will be covered.
 
 Currently the thinking is to have the following top level structure:
  - data : the static data repositories (immutable state change data)
@@ -10,7 +10,7 @@ Currently the thinking is to have the following top level structure:
  - backups : platform level backups
  - tools : visualisation and managing tools to interact with the platform
 
-The runtime folder is concerned with the processes running on the platform, the settings and the dynamic data (associated with execution).
+The runtime directory is concerned with the processes running on the platform, the settings and the dynamic data (associated with execution).
 For this purpose it has a self-contained structure.
     - backup : housekeeping cleans up at regular intervals, and state is kept where required
     - boot : startup process (boot and shutdown)
@@ -26,12 +26,12 @@ For this purpose it has a self-contained structure.
   - triggers : a list of tasks triggered by a data footprint
 Each process (boot, system or session) is (currently) single thread. Although the scheduler and trigger processes may be separated out in future.
 
- Although this is dealing with a folder structure, bear in mind that the setup must be compatible with Kafka.  
+ Although this is dealing with a directory structure, bear in mind that the setup must be compatible with Kafka.  
  It should be possible to switch the storage over to a Kafka cluster just by swithing for Kafka version of the data layer.  
 
-The data folder within a process is used to contain operational data (processed from request) to facilitate the scheduler and trigger processes or when required as part of archiving. They may also be refreshed periodically for operational reasons.
+The data directory within a process is used to contain operational data (processed from request) to facilitate the scheduler and trigger processes or when required as part of archiving. They may also be refreshed periodically for operational reasons.
   
 The system process lifetime is determined by the boot process. 
 The boot process stays in existence until shutdown.
 
-Note that the boot session (and potentially the system session) may have its own modules folder to ensure it runs on 'safe' code that keeps running when the main part of the install encounter major issues.
+Note that the boot session (and potentially the system session) may have its own modules directoryto ensure it runs on 'safe' code that keeps running when the main part of the install encounter major issues.

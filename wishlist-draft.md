@@ -138,9 +138,9 @@ The model data repository - i.e. the logical data repository - is Kafka.
 However there should be a choice of physical repositories for platform internal use that are sufficiently compliant with the logical repository.  
 What this means is that physical repositories do not need all configurations available at the logical repository level.
 
-### Folder Based Repositories
+### Directory Based Repositories
 
-The filesystem offers a versatile tool to create a variety of file folder structure patterns that are compliant with the logical repository.  
+The filesystem offers a versatile tool to create a variety of file directory structure patterns that are compliant with the logical repository.  
 Various patterns will be worked out in detail and used heavily during the initial implementation stages.
 
 ### Third Party Repositories

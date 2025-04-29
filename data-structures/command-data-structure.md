@@ -33,5 +33,5 @@ I think command should be grouped with an option array in our case, as it always
 }
 ```
 
-A subcommand has the same structure but is stored as a subfolder of the main command.
+A subcommand has the same structure but is stored as a subdirectory of the main command.
  

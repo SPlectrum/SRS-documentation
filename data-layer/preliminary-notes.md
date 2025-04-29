@@ -63,9 +63,9 @@ In that case header data hives are added to express the compression - needs more
 ## Data Operations
 
 Data operations are expressed at the logical level using the filesystem based naming.  
-*spl/data/read* and */spl/data/write* with repo, folder and file as specifications. (*spl/data/consume* and *spl/data/publish* to follow)  
+*spl/data/read* and */spl/data/write* with repo, directory and file as specifications. (*spl/data/consume* and *spl/data/publish* to follow)  
 These translate directly to the filesystem operations *spl/data/fs/read* and *spl/data/fs/write*.
-Later a Kafka physical store adaptor will be implemented, and then repo, folder and file will be translated to cluster, topic, PK etc as required.
+Later a Kafka physical store adaptor will be implemented, and then repo, directory and file will be translated to cluster, topic, PK etc as required.
 
 The requests of the data pipelines do not read or write directly.  
 They hand this over to the execution context, and all data access is kept as part of request execution to detach request execution from specific repository state at request execution level. This is a very important feature of the platform.

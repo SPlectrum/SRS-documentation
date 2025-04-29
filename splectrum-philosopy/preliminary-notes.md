@@ -3,11 +3,11 @@
 The platform is seen as only a building block that allows to create more complex processing structures.  
 
 SPlectrum powers a platform to run data streaming applications.  
-Functionality is contained in the modules folder.  
+Functionality is contained in the modules directory.  
 SPlectrum provides the core functionaltiy.
 
 There is a common structure to everything that runs on SPlectrum,  
-(see folder structure)
+(see directory structure)
 
 A platform instance is just a node in processing land.  
 Complex functionality should apply separation of concern and multinode design. (thiking of permissions/security/etc.)  
